@@ -44,7 +44,7 @@ function AllureReporter(runner, opts) {
     runner.on("pending", invokeHandler(function(test) {
         var currentTest = allureReporter.getCurrentTest();
         if(currentTest && currentTest.name === test.title) {
-            allureReporter.endCase("skipped");
+            allureReporter.endCase("skipped", {message: "Test skipped"});
         } else {
             allureReporter.pendingCase(test.title);
         }
